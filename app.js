@@ -16,7 +16,8 @@ const commentRoutes = require("./routes/comments"),
       campgroundRoutes = require("./routes/campgrounds"),
       indexRoutes = require("./routes/index");
 
-mongoose.connect("mongodb://localhost:27017/yelp_camp", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost:27017/yelp_camp", { useNewUrlParser: true });
+mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true});
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -26,7 +27,7 @@ app.use(flash());
 
 // PASSPORT CONFIG
 app.use(require("express-session")({
-    secret: "I still have no idea what this does, but I'm guessing it's somewhat like a password to keep users logged in.",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
 }));
