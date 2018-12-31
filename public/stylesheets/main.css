@@ -1,0 +1,17 @@
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail {
+    padding: 0;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.08),
+                5px 5px 10px rgba(0, 0, 0, 0.03);
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+}
+
+.delete-form {
+    display: inline;
+}
