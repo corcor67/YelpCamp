@@ -1,11 +1,27 @@
 <% include partials/header %>
 
-<h1>Login</h1>
-
-<form action="/login" method="POST">
-    <input type="text" name="username" placeholder="Username">
-    <input type="password" name="password" placeholder="Password">
-    <button>Login</button>
-</form>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header text-center">
+            Login to YelpCamp
+        </div>
+        
+        <div class="card-body">
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input class="form-control" type="text" name="username" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input class="form-control" type="password" name="password" placeholder="Password">
+                </div>
+                <div class="form-group mt-4"></div>
+                    <button class="btn btn-primary btn-block">Login!</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <% include partials/footer %>
