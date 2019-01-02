@@ -21,14 +21,18 @@
                     <p> <%= campground.description %> </p>
                     <p><em>Submitted by: <%= campground.author.username %></em></p>
                     <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
-                        <a class="btn btn-xs btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
-                        <form class="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
-                            <button class="btn btn-xs btn-danger">Delete</button>
-                        </form>
+                            <div class="btn-group d-flex justify-content-end" role="group" aria-label="edit buttons">
+                                <div>   <!--If we don't have this div, Bootstrap flex will stretch our edit button-->
+                                    <a class="btn btn-warning btn-xs py-1" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+                                </div>
+                                <form class="delete-form btn-group" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+                                    <button class="btn btn-xs btn-danger py-1">Delete</button>
+                                </form>
+                            </div>
                     <% } %>
                 </div>
             </div>
-
+            
             <div class="well">
                 <hr>
                 <% campground.comments.forEach(function(comment){ %>
@@ -38,10 +42,14 @@
                             <span class="pull-right">10 days ago</span>
                             <p> <%= comment.text %> </p>
                             <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
-                                <a class="btn btn-xs btn-warning" href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">Edit</a>
-                                <form class="delete-form" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-                                    <button class="btn btn-xs btn-danger">Delete</button>
-                                </form>
+                                <div class="btn-group d-flex justify-content-end" role="group" aria-label="edit buttons">
+                                    <div>
+                                        <a class="btn btn-xs btn-warning py-1" href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">Edit</a>
+                                    </div>
+                                    <form class="delete-form btn-group" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                        <button class="btn btn-xs btn-danger py-1">Delete</button>
+                                    </form>
+                                </div>
                             <% } %>
                         </div>
                     </div>
