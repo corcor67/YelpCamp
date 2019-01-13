@@ -4,17 +4,6 @@ const express       = require("express"),
       Comment       = require("../models/comment"),
       Campground    = require("../models/campground");
 
-// COMMENTS NEW
-router.get("/new", middleware.isLoggedIn, function(req, res) {
-    Campground.findById(req.params.id, function(err, campground){
-        if(err){
-            console.log(err);
-        } else {
-            res.render("comments/new", {campground: campground});
-        }
-    });
-});
-
 // COMMENTS CREATE
 router.post("/", middleware.isLoggedIn, function(req, res){
     Campground.findById(req.params.id, function(err, campground) {
