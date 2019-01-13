@@ -25,7 +25,7 @@
                                 <div>   <!--If we don't have this div, Bootstrap flex will stretch our edit button-->
                                     <a class="btn btn-warning btn-xs py-1" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
                                 </div>
-                                <form class="delete-form btn-group" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+                                <form class="inline btn-group" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
                                     <button class="btn btn-xs btn-danger py-1">Delete</button>
                                 </form>
                             </div>
@@ -46,7 +46,7 @@
                                     <div>
                                         <a class="btn btn-xs btn-warning py-1" href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">Edit</a>
                                     </div>
-                                    <form class="delete-form btn-group" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                    <form class="inline btn-group" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
                                         <button class="btn btn-xs btn-danger py-1">Delete</button>
                                     </form>
                                 </div>
